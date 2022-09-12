@@ -1,0 +1,23 @@
+kubectl cp POD-NAME:/data.tar.gz /opt/DIR-NAME/data.tar.gz
+du -sh data.tar.gz 
+tar -xvzf data.tar.gz
+kubectl exec -it POD-NAME -- /bin/bash
+
+
+### DEPLOYING NGINX POD ###
+kubectl run --image=nginx nginx-fx
+kubectl get po
+
+### SSH INTO DIR  ###
+cd ssh/
+cat test.pub
+
+### SSH INTO NODE OF AKS ### 
+kubectl debug node/PASTE-NODE-NAME -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
+nano /host/home/azureuser/.ssh/authorized_keys 
+kubectl cp test nginx-fx:/ 
+kubectl get nodes -o wide
+kubectl exec -it nginx-fx -- /bin/bash
+ssh -i nginx-fx azureuser@PRIVATE-IP-NODE
+kubectl get nodes -o wide
+kubectl get po
