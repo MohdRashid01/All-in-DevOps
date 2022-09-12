@@ -1,0 +1,5 @@
+kubectl debug -it target-container —image=zzz —target=target-container
+kube-capacity --util --pods
+
+To watch for health endpoints:
+kubectl get --raw '/healthz?verbose'
