@@ -1,0 +1,2 @@
+minikube start   --driver=docker --cpus=20 --memory=88g --kubernetes-version=stable --base-image='k8s-minikube/kicbase:runc110'    
+minikube start   --driver=docker --cpus=12 --memory=56g --kubernetes-version=stable --base-image='minikube-kicbase:latest'  
